@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Курс BaseJava (обновленный и переработанный)
 
 ## Разработка Web приложения "База данных резюме"
@@ -207,3 +208,7 @@
 - [Java. Базовый курс (доступен также через плагин JetBrains EduTools)](https://stepik.org/course/Java-Базовый-курс-187)
 - <a href="http://www.intuit.ru/studies/courses/16/16/info">intuit: Программирование на Java</a>
 - <a href="http://sernam.ru/book_java.php">Основы программирования на Java: учебное пособие</a>
+=======
+# basejava
+BaseJava Homework
+>>>>>>> 3a502b8f845711cce87c82cacd2da27460bcee79
