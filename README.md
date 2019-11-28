@@ -1,2 +1,0 @@
-# basejava
-BaseJava Homework
