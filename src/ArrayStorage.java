@@ -13,8 +13,8 @@ public class ArrayStorage {
     }
 
     void save(Resume r) {
-            this.storage[size] = r;
-            size++;
+        this.storage[size] = r;
+        size++;
     }
 
     String get(String uuid) { // функция, Resume - тип, get переменная, String аргумент
