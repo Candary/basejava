@@ -13,17 +13,12 @@ public class ArrayStorage {
     }
 
     void save(Resume r) {
-//        this.storage[r] = Resume;
-//        this.r = storage;
-
-
             this.storage[size] = r;
             size++;
     }
 
-    Resume get(String uuid) {
-        Arrays.toString(storage[size] );
-
+    String get(String uuid) { // функция, Resume - тип, get переменная, String аргумент
+        return uuid;
     }
 
     void delete(String uuid) {
