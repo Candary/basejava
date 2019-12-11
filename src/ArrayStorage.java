@@ -9,7 +9,6 @@ public class ArrayStorage {
 
     void clear() {
         Arrays.fill(storage, 0, size, null);
-        size = 0;
     }
 
     void save(Resume r) {
@@ -17,21 +16,26 @@ public class ArrayStorage {
         size++;
     }
 
-    String get(String uuid) { // функция, Resume - тип, get переменная, String аргумент
+    String get(String uuid) {
         return uuid;
     }
 
     void delete(String uuid) {
+        int removeIndex = Arrays.toString(storage).indexOf(uuid);
+
+        for(int i = removeIndex; i < storage.length - 1; i++){
+            storage[i] = storage[i + 1];
+        }
     }
 
     /**
      * @return array, contains only Resumes in storage (without null)
      */
     Resume[] getAll() {
-        return new Resume[0];
+        return storage;
     }
 
     int size() {
-        return 0;
+        return storage.length;
     }
 }
