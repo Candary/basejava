@@ -11,14 +11,11 @@ public class MainArray {
 
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-//        создаём консоль для ввода
         Resume r;
-        // создаём переменную r класса Resume
         while (true) {
             System.out.print("Введите одну из команд - (list | save uuid | delete uuid | get uuid | clear | exit): ");
             //выводим строку
             String[] params = reader.readLine().trim().toLowerCase().split(" ");
-            // создаём строковый массив params
             if (params.length < 1 || params.length > 2) {
                 // 	a || b	а или b истинно, b оценивается условно (если а истинно, b не вычисляется)
                 System.out.println("Неверная команда.");
