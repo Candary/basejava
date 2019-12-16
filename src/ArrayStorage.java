@@ -3,8 +3,16 @@ import java.util.Arrays;
 /**
  * Array based storage for Resumes
  */
+
+
+//        • Resume get
+//        метод должен вернуть Resume, а не uuid
+//        • метод size() должен возвращать количество резюме в массиве
+//        • метод getAll() должен возвращать все резюме, безе null
+//        ты ничего по сути не реализовал в этом дз
+
 public class ArrayStorage {
-    Resume[] storage = new Resume[10000];
+    Resume[] storage = new Resume[5];
     int size;
 
     void clear() {
@@ -16,8 +24,8 @@ public class ArrayStorage {
         size++;
     }
 
-    String get(String uuid) {
-        return uuid;
+    Resume get(String uuid) {
+        return null;
     }
 
     void delete(String uuid) {
@@ -32,7 +40,17 @@ public class ArrayStorage {
      * @return array, contains only Resumes in storage (without null)
      */
     Resume[] getAll() {
-        return storage;
+        int k=0;
+        String result="";
+        for(int i=0; i < storage.length; i++) {
+            if(storage[i]!=null) {
+                if(k > 0)
+                    result=", ";
+                result+=(storage[i]);
+                k++;
+            }
+        }
+        return Arrays.
     }
 
     int size() {
