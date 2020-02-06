@@ -1,5 +1,6 @@
 package com.urise.webapp.storage;
-/*не забывай нажимать перед каждым коммитом для каждого класса, где были внесены изменения, Ctrl + Alt + L (это автоматическое форматирование кода)
+/*не забывай нажимать перед каждым коммитом для каждого класса, где были внесены изменения, Ctrl + Alt + L
+        (это автоматическое форматирование кода)
         в save удали index. Так и используй size, как есть
         в get обращайся к size напрямую, а не через size()
         i < size()-1
@@ -11,7 +12,7 @@ package com.urise.webapp.storage;
 import com.urise.webapp.model.Resume;
 
 public class ArrayStorage {
-    private Resume[] storage = new Resume[10000];
+    private Resume[] storage = new Resume[5];
     private int size = 0;
 
     public void clear() {
@@ -20,7 +21,7 @@ public class ArrayStorage {
         }
         size = 0;
     }
-
+/* перед сохранением проверить, что резюме нет в базе */
     public void save(Resume r) {
         if (size < storage.length) {
             storage[size] = r;
@@ -44,6 +45,7 @@ public class ArrayStorage {
     }
 */
 
+/* перед удалением проверить, что резюме существует */
     public void delete(String uuid) {
         int index = -1;
         for (int i = 0; i < size; i++) {
@@ -64,10 +66,16 @@ public class ArrayStorage {
         }
 
     }
+/* перед апдейтом проверить, что резюме существует */
+    public void update (Resume resume) {
+        if (size < storage.length) {
+            storage[size] = resume;
+            size++;
+        }
 
-    void update (Resume resume) {
-        ///
-    }
+
+//  найти uuid нужной записи, которую обновляем
+        }
 
     /**
      * @return array, contains only Resumes in storage (without null)
