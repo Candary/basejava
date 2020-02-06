@@ -70,6 +70,7 @@ public class ArrayStorage {
     public void update (Resume resume) {
         if (size < storage.length) {
             storage[size] = resume;
+            storage[size].getUuid().equals(resume);
             size++;
         }
 
