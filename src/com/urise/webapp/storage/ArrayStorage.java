@@ -21,7 +21,8 @@ public class ArrayStorage {
         }
         size = 0;
     }
-/* перед сохранением проверить, что резюме нет в базе */
+
+    /* перед сохранением проверить, что резюме нет в базе */
     public void save(Resume r) {
         if (size < storage.length) {
             storage[size] = r;
@@ -45,7 +46,7 @@ public class ArrayStorage {
     }
 */
 
-/* перед удалением проверить, что резюме существует */
+    /* перед удалением проверить, что резюме существует */
     public void delete(String uuid) {
         int index = -1;
         for (int i = 0; i < size; i++) {
@@ -60,23 +61,27 @@ public class ArrayStorage {
             index++;
         }
 
-        if(index != -1) {
+        if (index != -1) {
             storage[index] = null;
             size--;
         }
 
     }
-/* перед апдейтом проверить, что резюме существует */
-    public void update (Resume resume) {
-        if (size < storage.length) {
-            storage[size] = resume;
-            storage[size].getUuid().equals(resume);
-            size++;
+
+    /* перед апдейтом проверить, что резюме существует */
+    public void update(Resume resume) {
+        int index = -1;
+        for (int i = 0; i < size; i++) {
+
+            if (!storage[i].getUuid().equals(resume)) {
+                storage[i].setUuid(resume.getUuid());
+                index = i + 1;
+                break;
+            }
+
         }
 
-
-//  найти uuid нужной записи, которую обновляем
-        }
+    }
 
     /**
      * @return array, contains only Resumes in storage (without null)
