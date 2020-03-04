@@ -12,7 +12,8 @@ package com.urise.webapp.storage;
 import com.urise.webapp.model.Resume;
 
 public class ArrayStorage {
-    private Resume[] storage = new Resume[5];
+
+    private Resume[] storage = new Resume[10000];
     private int size = 0;
 
     public void clear() {
@@ -20,81 +21,70 @@ public class ArrayStorage {
             storage[i] = null;
         }
         size = 0;
+
     }
 
-    /* перед сохранением проверить, что резюме нет в базе */
+    public void update(Resume r) {
+        int index = getIndex(r.getUuid());
+        if (index == -1) {
+            System.out.println("Resume " + r.getUuid() + " not exist");
+        } else {
+            storage[index] = r;
+        }
+    }
+
     public void save(Resume r) {
-        if (size < storage.length) {
+        if (getIndex(r.getUuid()) != -1) {
+            System.out.println("Resume " + r.getUuid() + " already exist");
+        } else if (size >= storage.length) {
+            System.out.println("Storage has error");
+        } else {
             storage[size] = r;
             size++;
         }
     }
 
     public Resume get(String uuid) {
-        for (int i = 0; i < size(); i++) {
-            if (uuid == storage[i].getUuid()) {
-                return storage[i];
-            }
+        int index = getIndex(uuid);
+        if (index == -1) {
+            System.out.println("Resume " + uuid + " not exist");
+            return null;
         }
-        return null;
+        return storage[index];
     }
 
-/*
-    if(index != -1) {
-        storage[index] = null;
-        size--;
-    }
-*/
-
-    /* перед удалением проверить, что резюме существует */
     public void delete(String uuid) {
-        int index = -1;
-        for (int i = 0; i < size; i++) {
-            if (storage[i].getUuid().equals(uuid)) {
-                index = i;
-                break;
-            }
-        }
-
-        while (index != size - 1) {
-            storage[index] = storage[index + 1];
-            index++;
-        }
-
-        if (index != -1) {
-            storage[index] = null;
+        int index = getIndex(uuid);
+        if (index == -1) {
+            System.out.println("Resume " + uuid + " not exist");
+        } else {
+            storage[index] = storage[size - 1];
+            storage[size - 1] = null;
             size--;
         }
-
-    }
-
-    /* перед апдейтом проверить, что резюме существует */
-    public void update(Resume resume) {
-        int index = -1;
-        for (int i = 0; i < size; i++) {
-
-            if (!storage[i].getUuid().equals(resume)) {
-                storage[i].setUuid(resume.getUuid());
-                index = i + 1;
-                break;
-            }
-
-        }
-
     }
 
     /**
      * @return array, contains only Resumes in storage (without null)
      */
+
     public Resume[] getAll() {
-        Resume[] resumes = new Resume[size];
-        for (int i = 0; i < size; i++) {
-            resumes[i] = storage[i];
-        }
-        return resumes;
+        Resume[] result = new Resume[size];
+        System.arraycopy(storage, 0, result, 0, size);
+        return result;
     }
 
     public int size() {
         return size;
     }
+
+    private int getIndex(String uuid) {
+        for (int i = 0; i < size; i++) {
+            if (uuid.equals(storage[i].getUuid())) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
 }
