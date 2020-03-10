@@ -1,13 +1,4 @@
 package com.urise.webapp.storage;
-/*не забывай нажимать перед каждым коммитом для каждого класса, где были внесены изменения, Ctrl + Alt + L
-        (это автоматическое форматирование кода)
-        в save удали index. Так и используй size, как есть
-        в get обращайся к size напрямую, а не через size()
-        i < size()-1
-        а зачем в методе get - 1?
-        в delete, если удалять нечего, то эти строки
-        storage[index] = null;        size--;
-        все равно выполняться. А так быть не должно*/
 
 import com.urise.webapp.model.Resume;
 
@@ -21,7 +12,6 @@ public class ArrayStorage {
             storage[i] = null;
         }
         size = 0;
-
     }
 
     public void update(Resume r) {

@@ -20,10 +20,8 @@ public class MainArray {
         Resume r;
         while (true) {
             System.out.print("Введите одну из команд - (list | save uuid | delete uuid | get uuid | update uuid | clear | exit): ");
-            //выводим строку
             String[] params = reader.readLine().trim().toLowerCase().split(" ");
             if (params.length < 1 || params.length > 2) {
-                // 	a || b	а или b истинно, b оценивается условно (если а истинно, b не вычисляется)
                 System.out.println("Неверная команда.");
                 continue;
             }
