@@ -1,11 +1,9 @@
 package com.urise.webapp.storage;
 
 import com.urise.webapp.model.Resume;
-import com.urise.webapp.storage.AbstractArrayStorage;
 
 import java.util.Arrays;
 import java.util.Comparator;
-
 
 public class SortedArrayStorage extends AbstractArrayStorage {
 /*

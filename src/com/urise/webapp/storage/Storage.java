@@ -2,8 +2,8 @@ package com.urise.webapp.storage;
 
 import com.urise.webapp.model.Resume;
 
-// always public
-//realize custom methods for classes just using this methods customly/
+import java.util.List;
+
 public interface Storage {
 
     void clear();
@@ -16,7 +16,10 @@ public interface Storage {
 
     void delete(String uuid);
 
-    Resume[] getAll();
+    /**
+     * @return array, contains only Resumes in storage (without null)
+     */
+    List<Resume> getAllSorted();
 
     int size();
 }
