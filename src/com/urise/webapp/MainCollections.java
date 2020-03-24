@@ -4,7 +4,6 @@ import com.urise.webapp.model.Resume;
 
 import java.util.*;
 
-
 public class MainCollections {
     private static final String UUID_1 = "uuid1";
     private static final Resume RESUME_1 = new Resume(UUID_1, "Name1");

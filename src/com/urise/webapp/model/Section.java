@@ -1,8 +1,13 @@
 package com.urise.webapp.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import java.io.Serializable;
+
 /**
  * gkislin
  * 19.07.2016
  */
-abstract public class Section {
+@XmlAccessorType(XmlAccessType.FIELD)
+abstract public class Section implements Serializable {
 }
