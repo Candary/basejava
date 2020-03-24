@@ -9,7 +9,15 @@ import java.util.Objects;
  * 14.07.2016
  */
 public class ListSection extends Section {
-    private final List<String> items;
+
+    private static final long serialVersionUID = 1L;
+
+    public static final ListSection EMPTY = new ListSection("");
+
+    private List<String> items;
+
+    public ListSection() {
+    }
 
     public ListSection(String... items) {
         this(Arrays.asList(items));
