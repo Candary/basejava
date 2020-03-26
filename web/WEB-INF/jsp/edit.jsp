@@ -1,15 +1,15 @@
-<%@ page import="ru.javawebinar.basejava.model.ContactType" %>
-<%@ page import="ru.javawebinar.basejava.model.ListSection" %>
-<%@ page import="ru.javawebinar.basejava.model.OrganizationSection" %>
-<%@ page import="ru.javawebinar.basejava.model.SectionType" %>
-<%@ page import="ru.javawebinar.basejava.util.DateUtil" %>
+<%@ page import="com.urise.webapp.model.ContactType" %>
+<%@ page import="com.urise.webapp.model.ListSection" %>
+<%@ page import="com.urise.webapp.model.OrganizationSection" %>
+<%@ page import="com.urise.webapp.model.SectionType" %>
+<%@ page import="com.urise.webapp.util.DateUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="css/style.css">
-    <jsp:useBean id="resume" type="ru.javawebinar.basejava.model.Resume" scope="request"/>
+    <jsp:useBean id="resume" type="com.urise.webapp.model.Resume" scope="request"/>
     <title>Резюме ${resume.fullName}</title>
 </head>
 <body>
@@ -31,7 +31,7 @@
         <hr>
         <c:forEach var="type" items="<%=SectionType.values()%>">
             <c:set var="section" value="${resume.getSection(type)}"/>
-            <jsp:useBean id="section" type="ru.javawebinar.basejava.model.Section"/>
+            <jsp:useBean id="section" type="com.urise.webapp.model.Section"/>
             <h2><a>${type.title}</a></h2>
             <c:choose>
                 <c:when test="${type=='OBJECTIVE'}">
@@ -59,7 +59,7 @@
                         <br>
                         <div style="margin-left: 30px">
                             <c:forEach var="pos" items="${org.positions}">
-                                <jsp:useBean id="pos" type="ru.javawebinar.basejava.model.Organization.Position"/>
+                                <jsp:useBean id="pos" type="com.urise.webapp.model.Organization.Position"/>
                                 <dl>
                                     <dt>Начальная дата:</dt>
                                     <dd>

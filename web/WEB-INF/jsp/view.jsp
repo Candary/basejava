@@ -1,14 +1,14 @@
-<%@ page import="ru.javawebinar.basejava.model.ListSection" %>
-<%@ page import="ru.javawebinar.basejava.model.OrganizationSection" %>
-<%@ page import="ru.javawebinar.basejava.model.TextSection" %>
-<%@ page import="ru.javawebinar.basejava.util.HtmlUtil" %>
+<%@ page import="com.urise.webapp.model.ListSection" %>
+<%@ page import="com.urise.webapp.model.OrganizationSection" %>
+<%@ page import="com.urise.webapp.model.TextSection" %>
+<%@ page import="com.urise.webapp.util.HtmlUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="css/style.css">
-    <jsp:useBean id="resume" type="ru.javawebinar.basejava.model.Resume" scope="request"/>
+    <jsp:useBean id="resume" type="com.urise.webapp.model.Resume" scope="request"/>
     <title>Резюме ${resume.fullName}</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
     <p>
         <c:forEach var="contactEntry" items="${resume.contacts}">
             <jsp:useBean id="contactEntry"
-                         type="java.util.Map.Entry<ru.javawebinar.basejava.model.ContactType, java.lang.String>"/>
+                         type="java.util.Map.Entry<com.urise.webapp.model.ContactType, java.lang.String>"/>
                 <%=contactEntry.getKey().toHtml(contactEntry.getValue())%><br/>
         </c:forEach>
     <p>
@@ -26,10 +26,10 @@
     <table cellpadding="2">
         <c:forEach var="sectionEntry" items="${resume.sections}">
             <jsp:useBean id="sectionEntry"
-                         type="java.util.Map.Entry<ru.javawebinar.basejava.model.SectionType, ru.javawebinar.basejava.model.Section>"/>
+                         type="java.util.Map.Entry<com.urise.webapp.model.SectionType, com.urise.webapp.model.Section>"/>
             <c:set var="type" value="${sectionEntry.key}"/>
             <c:set var="section" value="${sectionEntry.value}"/>
-            <jsp:useBean id="section" type="ru.javawebinar.basejava.model.Section"/>
+            <jsp:useBean id="section" type="com.urise.webapp.model.Section"/>
             <tr>
                 <td colspan="2"><h2><a name="type.name">${type.title}</a></h2></td>
             </tr>
@@ -74,7 +74,7 @@
                             </td>
                         </tr>
                         <c:forEach var="position" items="${org.positions}">
-                            <jsp:useBean id="position" type="ru.javawebinar.basejava.model.Organization.Position"/>
+                            <jsp:useBean id="position" type="com.urise.webapp.model.Organization.Position"/>
                             <tr>
                                 <td width="15%" style="vertical-align: top"><%=HtmlUtil.formatDates(position)%>
                                 </td>
